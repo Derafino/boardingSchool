@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>table {
+    border-collapse: collapse;
+        margin: auto;
+width: 1500px;
+}
+
+table, th, td,tr {
+border: 1px solid black;
+}
+    td{text-align: center;}
+body{
+    background-color: #FFEB7F;
+   }
+</style>
+
+
+
+
+</head>
+<body>
+{% block login %}
+    {% if request.user.is_authenticated %}
+        <div style='margin-top:30px; font-size: 100%'>
+            <form method='POST'>{% csrf_token %}
+                <p>Ви ввійшли як {{ request.user }}. <a href='/logout/'>Вийти</a></p>
+
+            </form>
+        </div>
+    {% else %}
+        <div style='margin-top:30px; font-size: 150%'>
+            <p>Ви не ввійшли в обліковий запис</p><a href='/login/'>Ввійти</a>
+        </div>
+    {% endif %}
+{% endblock login %}
+{% block content %}
+{% endblock content %}
+</body>
+</html>

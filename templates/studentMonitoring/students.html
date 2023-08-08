@@ -1,0 +1,42 @@
+{% extends 'studentMonitoring/base.html' %}
+{% block content %}
+    <head>
+        <title>Виставлення оцінок</title>
+    </head>
+
+    <p style="
+        text-align: center;
+         padding: 0%;
+     font-size: 150%;font-weight: 600;">Виставлення оцінок</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div style="
+        text-align: center;
+         padding: 0%;
+        margin-top: 0%;
+
+    ">{{ select_subject_form }}</div>
+        <p>
+            <button style="display: block;
+    margin-left: auto;
+    margin-right: auto" type="submit">Ок</button>
+        </p>
+    </form>
+
+    {% if students %}
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+            <th>Прізвище</th>
+            <th>Ім'я</th>
+        </tr>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.surname }}</td>
+                <td>{{ student.name }}</td>
+                <td><a href="{% url 'add_mark' subject_id student.id %}">Додати оцінку</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

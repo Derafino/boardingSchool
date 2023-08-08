@@ -1,0 +1,20 @@
+from django.contrib import admin
+from studentMonitoring.models import *
+
+admin.site.register(Section)
+admin.site.register(StudentInfo)
+admin.site.register(Violation)
+admin.site.register(StudentHealth)
+admin.site.register(MarkType)
+admin.site.register(SubjectType)
+admin.site.register(Subject)
+admin.site.register(StudentMark)
+admin.site.register(RatingType)
+admin.site.register(Rating)
+admin.site.register(StudentRating)
+admin.site.register(UserRole)
+admin.site.register(User)
+admin.site.register(Form)
+admin.site.register(Sex)
+admin.site.register(MarkValue)
+admin.site.register(Team)

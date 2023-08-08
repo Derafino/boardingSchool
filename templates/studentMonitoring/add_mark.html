@@ -1,0 +1,32 @@
+{% extends 'studentMonitoring/base.html' %}
+{% block content %}
+    <head>
+        <title>Виставлення оцінки</title>
+    </head>
+    <p style="
+        text-align: center;
+         padding: 0%;
+     font-size: 150%;font-weight: 600;">{{ student }}</p>
+    <p style="
+        text-align: center;
+         padding: 0%;
+     font-size: 100%;font-weight: 600;">{{ subject }}</p>
+    <form style="text-align: center;
+         padding: 10%;font-size: 150%;" action="" method="POST">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <p >{{ field.label }}:</p> <p >{{ field }}</p>
+        {% endfor %}
+
+        <button type="submit">Ок</button>
+    </form>
+    {% if saved %}
+        <p>Оцінка збережена</p>
+    {% endif %}
+
+    <button style="margin-top: 0%;display: block;
+    margin-left: auto;
+    margin-right: auto" onclick="history.back()">Назад
+    </button>
+{% endblock %}

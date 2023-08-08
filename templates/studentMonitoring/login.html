@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Логін</title>
+    <style>div {
+        text-align: center;
+         padding: 10%;
+
+    }
+    body{
+    background-color: #FFEB7F;
+   }</style>
+</head>
+<body>
+<div><form action="" method="post">
+    {% csrf_token %}
+    <font size="5">
+    {{ form.as_p }}</font>
+    <button type="submit">Ок</button>
+
+</form></div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends 'studentMonitoring/base.html' %}
+{% block content %}
+    <head><title>Команда</title></head>
+    <p style="
+        text-align: center;
+         padding: 0%;
+     font-size: 150%;font-weight: 600;">Команда</p>
+    <p  style="
+        text-align: center;
+         padding: 0%;"><a href="/">Зберегти в форматі CSV</a></p>
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+            <th>Учень</th>
+            <th>Стать</th>
+            <th>Клас</th>
+            <th>Вік</th>
+            <th>Оцінка за навчання</th>
+            <th>Оцінка за спорт</th>
+            <th>Штрафна оцінка</th>
+            <th>Загальна оцінка (Спорт * 0.7 + навчання * 0.3 - штраф * 0.5)</th>
+        </tr>
+        {% for student in students %}
+            <tr>
+                <td>{{ student }}</td>
+                <td>{{ student.sex }}</td>
+            <td>{{ student.form }}</td>
+                <td>{{ student.get_age }}</td>
+                <td>{{ student.study_assessment }}</td>
+            <td>{{ student.sport_assessment }}</td>
+            <td>{{ student.violation_assessment }}</td>
+            <td>{{ student.calculate_general_assessment }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
